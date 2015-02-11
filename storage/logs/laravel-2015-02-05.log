@@ -1,0 +1,171 @@
+[2015-02-05 00:13:52] local.ERROR: exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1059 Identifier name 'board_game_version_board_game_event_board_game_version_id_foreign' is too long' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php:358
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(358): PDOStatement->execute(Array)
+#1 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(606): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'alter table `bo...', Array)
+#2 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(570): Illuminate\Database\Connection->runQueryCallback('alter table `bo...', Array, Object(Closure))
+#3 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(359): Illuminate\Database\Connection->run('alter table `bo...', Array, Object(Closure))
+#4 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php(63): Illuminate\Database\Connection->statement('alter table `bo...')
+#5 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(169): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(112): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(213): Illuminate\Database\Schema\Builder->create('board_game_vers...', Object(Closure))
+#8 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_02_214911_create_board_game_version_board_game_event_table.php(22): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_02_214911_create_board_game_version_board_game_event_table.php(22): Illuminate\Support\Facades\Schema::create('board_game_vers...', Object(Closure))
+#10 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(135): CreateBoardGameVersionBoardGameEventTable->up()
+#11 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(111): Illuminate\Database\Migrations\Migrator->runUp('2015_02_02_2149...', 22, false)
+#12 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(82): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#13 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(73): Illuminate\Database\Migrations\Migrator->run('/Users/gabriell...', false)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Container/Container.php(523): call_user_func_array(Array, Array)
+#16 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(115): Illuminate\Container\Container->call(Array)
+#17 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(101): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(874): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(195): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(126): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(91): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1059 Identifier name 'board_game_version_board_game_event_board_game_version_id_foreign' is too long (SQL: alter table `board_game_version_board_game_event` add constraint board_game_version_board_game_event_board_game_version_id_foreign foreign key (`board_game_version_id`) references `board_game_versions` (`id`))' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php:614
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(570): Illuminate\Database\Connection->runQueryCallback('alter table `bo...', Array, Object(Closure))
+#1 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(359): Illuminate\Database\Connection->run('alter table `bo...', Array, Object(Closure))
+#2 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php(63): Illuminate\Database\Connection->statement('alter table `bo...')
+#3 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(169): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(112): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(213): Illuminate\Database\Schema\Builder->create('board_game_vers...', Object(Closure))
+#6 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_02_214911_create_board_game_version_board_game_event_table.php(22): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_02_214911_create_board_game_version_board_game_event_table.php(22): Illuminate\Support\Facades\Schema::create('board_game_vers...', Object(Closure))
+#8 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(135): CreateBoardGameVersionBoardGameEventTable->up()
+#9 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(111): Illuminate\Database\Migrations\Migrator->runUp('2015_02_02_2149...', 22, false)
+#10 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(82): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#11 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(73): Illuminate\Database\Migrations\Migrator->run('/Users/gabriell...', false)
+#12 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#13 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Container/Container.php(523): call_user_func_array(Array, Array)
+#14 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(115): Illuminate\Container\Container->call(Array)
+#15 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(101): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(874): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(195): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(126): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(91): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}  
+[2015-02-05 00:16:51] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'CreateBoardGameEventsTable' not found' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php:301
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 00:17:25] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'CreateBoardGameEventsTable' not found' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php:301
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 00:54:41] local.ERROR: exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unsigned not null, `date` date not null, `created_at` timestamp default 0 not nu' at line 1' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php:358
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(358): PDO->prepare('create table `b...')
+#1 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(606): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'create table `b...', Array)
+#2 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(570): Illuminate\Database\Connection->runQueryCallback('create table `b...', Array, Object(Closure))
+#3 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(359): Illuminate\Database\Connection->run('create table `b...', Array, Object(Closure))
+#4 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php(63): Illuminate\Database\Connection->statement('create table `b...')
+#5 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(169): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(112): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(213): Illuminate\Database\Schema\Builder->create('board_game_vers...', Object(Closure))
+#8 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_05_004004_create_board_game_version_comments_table.php(26): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_05_004004_create_board_game_version_comments_table.php(26): Illuminate\Support\Facades\Schema::create('board_game_vers...', Object(Closure))
+#10 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(135): CreateBoardGameVersionCommentsTable->up()
+#11 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(111): Illuminate\Database\Migrations\Migrator->runUp('2015_02_05_0040...', 1, false)
+#12 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(82): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#13 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(73): Illuminate\Database\Migrations\Migrator->run('/Users/gabriell...', false)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Container/Container.php(523): call_user_func_array(Array, Array)
+#16 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(115): Illuminate\Container\Container->call(Array)
+#17 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(101): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(874): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(195): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(126): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(91): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unsigned not null, `date` date not null, `created_at` timestamp default 0 not nu' at line 1 (SQL: create table `board_game_version_comments` (`id` int unsigned not null auto_increment primary key, `board_game_version_id` int unsigned not null, `user_id` int unsigned not null, `rating` int unsigned not null, `text` text unsigned not null, `date` date not null, `created_at` timestamp default 0 not null, `updated_at` timestamp default 0 not null) default character set utf8 collate utf8_unicode_ci)' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php:614
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(570): Illuminate\Database\Connection->runQueryCallback('create table `b...', Array, Object(Closure))
+#1 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Connection.php(359): Illuminate\Database\Connection->run('create table `b...', Array, Object(Closure))
+#2 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php(63): Illuminate\Database\Connection->statement('create table `b...')
+#3 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(169): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(112): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(213): Illuminate\Database\Schema\Builder->create('board_game_vers...', Object(Closure))
+#6 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_05_004004_create_board_game_version_comments_table.php(26): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/database/migrations/2015_02_05_004004_create_board_game_version_comments_table.php(26): Illuminate\Support\Facades\Schema::create('board_game_vers...', Object(Closure))
+#8 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(135): CreateBoardGameVersionCommentsTable->up()
+#9 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(111): Illuminate\Database\Migrations\Migrator->runUp('2015_02_05_0040...', 1, false)
+#10 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(82): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#11 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(73): Illuminate\Database\Migrations\Migrator->run('/Users/gabriell...', false)
+#12 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#13 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Container/Container.php(523): call_user_func_array(Array, Array)
+#14 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(115): Illuminate\Container\Container->call(Array)
+#15 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Console/Command.php(101): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(874): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(195): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/symfony/console/Symfony/Component/Console/Application.php(126): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(91): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}  
+[2015-02-05 00:56:52] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'CreateEventUserTable' not found' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php:301
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 15:52:13] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Cannot redeclare class App\InventoryStatus' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/app/Models/InventoryStatus.php:12
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 15:58:17] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Access level to App\Models\InventoryStatus::$timestamps must be public (as in class Illuminate\Database\Eloquent\Model)' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/app/Models/InventoryStatus.php:14
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 18:02:29] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'InventoryStatus' not found' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 18:05:40] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method Illuminate\Database\Eloquent\Collection::array()' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 18:33:39] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method Illuminate\Database\Eloquent\Collection::inventory_statuses()' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 19:02:11] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function toArray() on null' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 19:03:31] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function toArray() on null' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 19:03:44] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function toArray() on null' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 19:05:50] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function toArray() on null' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-02-05 19:14:24] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function toArray() on array' in /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(67) : eval()'d code:1
+Stack trace:
+#0 /Users/gabriellamer/PhpstormProjects/BoardGameWebsite/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
