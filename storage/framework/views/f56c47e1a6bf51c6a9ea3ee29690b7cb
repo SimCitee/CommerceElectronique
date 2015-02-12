@@ -1,0 +1,64 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1">
+                <h1>
+                    <?php echo e(Lang::get('users.users')); ?>
+
+                </h1>
+            </div>
+            <div class="col-md-11">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">
+                <a href="<?php echo e(action('Admin\UsersController@create')); ?>">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <?php echo e(Lang::get('actions.add')); ?>
+
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><?php echo e(Lang::get('users.firstname')); ?></th>
+                        <th><?php echo e(Lang::get('users.lastname')); ?></th>
+                        <th><?php echo e(Lang::get('users.username')); ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($users as $user): ?>
+                        <tr>
+                            <td>
+                                <?php echo e($user->id); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($user->first_name); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($user->last_name); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($user->email); ?>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

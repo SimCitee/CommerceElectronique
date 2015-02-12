@@ -13,11 +13,28 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/admin', 'AdminController@login');
+Route::get('/admin', function()
+{
+	return view('app');
+});
 
-Route::get('home', 'HomeController@index');
+Route::group(array('namespace' => 'Admin'), function()
+{
+	Route::resource('admin/users', 'UsersController');
+});
+
+
+Route::resource('admin/group', 'GroupsController');
+Route::resource('admin/products', 'ProductsController');
+Route::resource('admin/productCategories', 'ProductCategoriesController');
+Route::resource('admin/tags', 'TagsController');
+Route::resource('admin/taxes', 'TaxesController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+]);
+
+Route::controllers([
+	'admin/auth' => 'Admin\AdminAuthController'
 ]);

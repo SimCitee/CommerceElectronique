@@ -22,8 +22,8 @@ class CreateAddressesTable extends Migration {
 			$table->string('country', 100);
 			$table->string('province', 100);
 			$table->string('zip_code', 20);
-			$table->float('latitude');
-			$table->float('longitude');
+			$table->float('latitude')->nullable();
+			$table->float('longitude')->nullable();
 		});
 	}
 

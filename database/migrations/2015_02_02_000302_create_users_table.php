@@ -16,14 +16,15 @@ class CreateUsersTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('group_id')->unsigned();
-			$table->integer('address_id')->unsigned();
+			$table->integer('address_id')->unsigned()->nullable();
 			$table->string('first_name', 100);
 			$table->string('last_name', 100);
 			$table->date('birth_date');
 			$table->string('phone', 25);
-			$table->string('email', 150);
+			$table->string('email', 150)->unique();
 			$table->string('username', 150);
 			$table->string('password', 512);
+			$table->rememberToken();
 			$table->timestamps();
 			$table->foreign('group_id')->references('id')->on('groups');
 			$table->foreign('address_id')->references('id')->on('addresses');

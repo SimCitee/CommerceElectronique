@@ -7,7 +7,8 @@ class Group extends Model {
     public $timestamps = false;
 
     protected $fillable = [
-        'name'
+        'name',
+        'is_admin'
     ];
 
     public function user()
@@ -15,4 +16,8 @@ class Group extends Model {
         return $this->hasMany('App\Models\User');
     }
 
+    public function isAdmin()
+    {
+        return $this->is_admin == 1;
+    }
 }
