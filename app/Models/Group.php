@@ -15,9 +15,4 @@ class Group extends Model {
     {
         return $this->hasMany('App\Models\User');
     }
-
-    public function isAdmin()
-    {
-        return $this->is_admin == 1;
-    }
 }

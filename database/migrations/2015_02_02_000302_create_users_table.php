@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->date('birth_date');
 			$table->string('phone', 25);
 			$table->string('email', 150)->unique();
-			$table->string('username', 150);
+			$table->string('username', 150)->unique();
 			$table->string('password', 512);
 			$table->rememberToken();
 			$table->timestamps();
@@ -40,5 +40,4 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::drop('users');
 	}
-
 }

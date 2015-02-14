@@ -31,6 +31,7 @@
                         <th>{{ Lang::get('users.firstname') }}</th>
                         <th>{{ Lang::get('users.lastname') }}</th>
                         <th>{{ Lang::get('users.username') }}</th>
+                        <th>{{ Lang::get('actions.actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,17 @@
                             </td>
                             <td>
                                 {{ $user->email }}
+                            </td>
+                            <td>
+                                <a class="actions" href="{{ action('Admin\UsersController@show', $user->id) }}">
+                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                </a>
+                                <a class="actions" href="{{ action('Admin\UsersController@edit', $user->id) }}">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                                <a class="actions" href="{{ action('Admin\UsersController@destroy', $user->id) }}">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

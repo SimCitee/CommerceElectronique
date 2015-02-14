@@ -67,4 +67,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Models\BoardGameVersionComment');
     }
 
+    public function isAdmin()
+    {
+        return $this->group_id && $this->group->is_admin == 1;
+    }
 }

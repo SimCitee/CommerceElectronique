@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 
 use Request;
@@ -27,7 +28,7 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-		return 'create!';
+		return view('admin.users.create');
 	}
 
 	/**
@@ -35,9 +36,11 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateUserRequest $request)
 	{
-		//
+		User::create($request->all());
+
+		return redirect('users');
 	}
 
 	/**
@@ -48,7 +51,7 @@ class UsersController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return view('admin.users.show');
 	}
 
 	/**
@@ -59,7 +62,7 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		return view('admin.users.edit');
 	}
 
 	/**

@@ -65,7 +65,7 @@ class AdminAuthController extends Controller {
 
         $user = User::where('email', '=', $credentials['email'])->first();
 
-        if ($user && $user->group && $user->group->isAdmin()) {
+        if ($user && $user->isAdmin()) {
             if ($this->auth->attempt($credentials, $request->has('remember')))
             {
                 return redirect()->intended($this->redirectPath());
