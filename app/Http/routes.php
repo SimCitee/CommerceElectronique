@@ -13,14 +13,10 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/admin', function()
-{
-	return view('app');
-});
-
 Route::group(array('namespace' => 'Admin'), function()
 {
 	Route::resource('admin/users', 'UsersController');
+	Route::get('/admin', 'AdminAuthController@getLogin');
 });
 
 

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class RedirectIfNotAdmin {
 
@@ -13,8 +14,8 @@ class RedirectIfNotAdmin {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if (!$request->user()->group->isAdmin()) {
-			return redirect('admin');
+		if (!Auth::check() || !Auth::user()->isAdmin()) {
+			return redirect()->back();
 		}
 
 		return $next($request);

@@ -11,7 +11,13 @@ use Request;
 
 class UsersController extends Controller {
 
-	//TODO:: use middleware to validate if user is authentified
+	/**
+	 *
+     */
+	public function __construct()
+	{
+		$this->middleware('admin', ['except' => 'getLogout']);
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -21,7 +27,6 @@ class UsersController extends Controller {
 	public function index()
 	{
 		$users = User::all();
-
 		return view('admin.users.index', compact('users'));
 	}
 

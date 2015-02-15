@@ -79,7 +79,7 @@ class AdminAuthController extends Controller {
                     'email' => 'These credentials do not match our records.',
                 ]);
         }
-        elseif (!$user->group || ($user->group && !$user->group->isAdmin())) {
+        elseif (!$user || ($user && !$user->isAdmin())) {
             return redirect('/admin/auth/login')
                 ->withInput($request->only('email'))
                 ->withErrors([
