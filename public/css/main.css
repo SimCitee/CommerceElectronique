@@ -119,17 +119,36 @@ div.box {
     box-shadow: none;
 }
 
+.no-bottom-margin {
+    margin-bottom: 0 !important;
+}
 
+.align-right {
+    float: right;
+}
 
+.row.spacing.bottom {
+    margin-bottom: 15px;
+}
 
+.row.spacing.top {
+    margin-top: 15px;
+}
 
+.row.spacing.both {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
 
+.inline {
+    display: inline;
+}
 
-
-
-
-
-
+.btn.plain, .btn.plain:hover, .btn.plain:focus, .btn.plain:active {
+    border: none !important;
+    padding: 0 !important;
+    background: none !important;
+}
 
 /* ==========================================================================
    Helper classes

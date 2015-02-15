@@ -3,11 +3,15 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use App\Models\Address;
 
 use Request;
 
 class UsersController extends Controller {
+
+	//TODO:: use middleware to validate if user is authentified
 
 	/**
 	 * Display a listing of the resource.
@@ -34,13 +38,20 @@ class UsersController extends Controller {
 	/**
 	 * Store a newly created resource in storage.
 	 *
+	 * @param CreateUserRequest $request
 	 * @return Response
 	 */
 	public function store(CreateUserRequest $request)
 	{
-		User::create($request->all());
+		$addressInput = $request->only('street_number', 'street_name', 'city', 'province', 'country', 'zip_code', 'latitude', 'longitude');
+		$address = Address::create($addressInput);
 
-		return redirect('users');
+		$userInput = $request->except($addressInput);
+		$userInput['address_id'] = $address->id;
+		$userInput['password'] = bcrypt($userInput['password']);
+		User::create($userInput);
+
+		return redirect()->route('admin.users.index');
 	}
 
 	/**
@@ -51,7 +62,8 @@ class UsersController extends Controller {
 	 */
 	public function show($id)
 	{
-		return view('admin.users.show');
+		$user = User::find($id);
+		return view('admin.users.show', compact('user'));
 	}
 
 	/**
@@ -62,18 +74,27 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('admin.users.edit');
+		$user = User::find($id);
+		return view('admin.users.edit', compact('user'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param UpdateUserRequest $request
+	 * @param  int $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(UpdateUserRequest $request, $id)
 	{
-		//
+		$addressInput = $request->only('street_number', 'street_name', 'city', 'province', 'country', 'zip_code', 'latitude', 'longitude');
+		$userInput = $request->except($addressInput);
+
+		$user = User::find($id);
+		$user->address->update($addressInput);
+		$user->update($userInput);
+
+		return redirect()->route('admin.users.show', $id);
 	}
 
 	/**
@@ -84,7 +105,8 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::find($id);
+		$result = $user->delete();
+		return $result ? $id : -1;
 	}
-
 }

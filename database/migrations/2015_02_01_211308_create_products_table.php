@@ -27,8 +27,8 @@ class CreateProductsTable extends Migration {
 			$table->string('upc', 50)->nullable();
 			$table->integer('quantity')->unsigned()->default(0);
 			$table->date('date_available')->nullable();
-			$table->boolean('is_archived')->default(false);;
-			$table->boolean('is_inactive')->default(false);;
+			$table->boolean('is_archived')->default(false);
+			$table->boolean('is_inactive')->default(false);
 			$table->timestamps();
 			$table->foreign('inventory_status_id')->references('id')->on('inventory_statuses');
 		});

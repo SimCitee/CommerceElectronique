@@ -3,7 +3,7 @@
 use Auth;
 use App\Http\Requests\Request;
 
-class CreateUserRequest extends Request {
+class UpdateUserRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class CreateUserRequest extends Request {
 			'last_name' => 'required|max:100',
 			'birth_date' => 'required|date',
 			'phone' => 'required|max:25',
-			'email' => 'required|e-mail|unique:users',
+			'email' => 'required|e-mail|unique:users,id,'.$this->get('id'),
 
 			'street_number' => 'required|numeric|between:1,999999',
 			'street_name' => 'required|max:150',
@@ -39,10 +39,9 @@ class CreateUserRequest extends Request {
 			'latitude' => 'numeric|max:100',
 			'longitude' => 'numeric|max:100',
 
-			'username' => 'required|max:150|unique:users',
+			'username' => 'required|max:150|unique:users,username,'.$this->get('id'),
 			'password' => 'required|max:512',
 			'repeat_password' => 'required|max:512|same:password',
 		];
 	}
-
 }

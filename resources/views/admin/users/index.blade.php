@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                     @foreach($users as $user)
-                        <tr>
+                        <tr id="user_{{ $user->id }}_row">
                             <td>
                                 {{ $user->id }}
                             </td>
@@ -56,9 +56,16 @@
                                 <a class="actions" href="{{ action('Admin\UsersController@edit', $user->id) }}">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </a>
-                                <a class="actions" href="{{ action('Admin\UsersController@destroy', $user->id) }}">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                </a>
+
+                                {!! Form::open(['action' => ['Admin\UsersController@destroy', $user->id], 'id' => 'user'.$user->id, 'class' => 'delete-form inline', 'method' => 'DELETE']) !!}
+                                    <input type="hidden" name="id" value="{{ $user->id }}">
+                                    <button class="btn btn-default plain" type="submit">
+                                        <a class="actions" href="{{ action('Admin\UsersController@destroy', $user->id) }}">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </a>
+                                    </button>
+
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach
@@ -67,4 +74,26 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    {!! HTML::script('js/jquery.form.min.js') !!}
+    <script>
+        $(document).ready(function() {
+            var options = {
+                success:       showResponse
+            };
+
+            $('.delete-form').submit(function() {
+                $(this).ajaxSubmit(options);
+                return false;
+            });
+        });
+
+        function showResponse(responseText, statusText, xhr, $form)  {
+            if (parseInt(responseText) > 0) {
+                $('#user_'+responseText+'_row').remove();
+            }
+        }
+    </script>
 @endsection

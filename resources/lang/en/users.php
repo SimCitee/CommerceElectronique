@@ -14,7 +14,10 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'create_new_user' => 'Create new user',
+    'edit_user' => 'Edit user',
     'users' => 'Users',
+    'user' => 'User',
     'firstname' => 'Firstname',
     'lastname' => 'Lastname',
     'username' => 'Username',

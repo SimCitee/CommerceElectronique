@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration {
 			$table->string('username', 150)->unique();
 			$table->string('password', 512);
 			$table->rememberToken();
+			$table->softDeletes();
 			$table->timestamps();
 			$table->foreign('group_id')->references('id')->on('groups');
 			$table->foreign('address_id')->references('id')->on('addresses');

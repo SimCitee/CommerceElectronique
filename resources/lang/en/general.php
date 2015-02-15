@@ -3,21 +3,16 @@
  * Created by PhpStorm.
  * User: Simon Dupré
  * Date: 2015-02-12
- * Time: 2:51 PM
+ * Time: 2:57 PM
  */
 
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Actions Language Lines
+    | General Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'actions' => 'Actions',
-    'add' => 'Add',
-    'remove'     => 'Remove',
-    'edit'     => 'Edit',
-    'save'     => 'Save',
-    'back'     => 'Back',
+    'not_specified' => 'Not specified',
 ];
