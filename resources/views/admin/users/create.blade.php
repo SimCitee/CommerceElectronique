@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('users_create') !!}
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row spacing">
@@ -25,6 +29,7 @@
 
                 <div class="box">
                     {!! Form::open(['action' => 'Admin\UsersController@store', 'class' => 'form-horizontal']) !!}
+                        <input type="hidden" name="group_id" value="1" >
                         <div>
                             <h3>
                                 {{ Lang::get('users.personnal_information') }}

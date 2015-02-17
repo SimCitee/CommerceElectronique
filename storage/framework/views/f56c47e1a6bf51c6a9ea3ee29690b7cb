@@ -1,3 +1,8 @@
+<?php $__env->startSection('breadcrumbs'); ?>
+    <?php echo Breadcrumbs::render('users'); ?>
+
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <div class="row">

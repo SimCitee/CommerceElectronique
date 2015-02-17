@@ -50,7 +50,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('App\Models\BoardGameVersion');
     }
 
-    public function createdEvent()
+    public function createdEvent()      
     {
         return $this->hasMany('App\Models\Event');
     }
@@ -68,6 +68,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function boardGameVersionComment()
     {
         return $this->hasMany('App\Models\BoardGameVersionComment');
+    }
+
+    public function fullname() {
+        return $this->first_name.' '.$this->last_name;
     }
 
     public function isAdmin()

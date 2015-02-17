@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('users_edit', $user) !!}
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row spacing">

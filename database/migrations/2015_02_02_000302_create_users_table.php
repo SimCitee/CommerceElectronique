@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('group_id')->unsigned();
-			$table->integer('address_id')->unsigned()->nullable();
+			$table->integer('address_id')->unsigned();
 			$table->string('first_name', 100);
 			$table->string('last_name', 100);
 			$table->date('birth_date');

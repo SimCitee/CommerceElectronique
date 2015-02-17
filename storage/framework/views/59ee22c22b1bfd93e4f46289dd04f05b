@@ -58,6 +58,13 @@
 	</nav>
 	<?php echo $__env->yieldSection(); ?>
 
+	<div id="breadcrumbs" class="container-fluid">
+		<div class="row">
+		<?php $__env->startSection('breadcrumbs'); ?>
+		<?php echo $__env->yieldSection(); ?>
+		</div>
+	</div>
+
 	<?php echo $__env->yieldContent('content'); ?>
 
 	<!-- Scripts -->

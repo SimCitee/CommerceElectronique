@@ -1,5 +1,9 @@
 @extends('admin.layout')
 
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('users') !!}
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row">

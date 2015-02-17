@@ -58,6 +58,13 @@
 	</nav>
 	@show
 
+	<div id="breadcrumbs" class="container-fluid">
+		<div class="row">
+		@section('breadcrumbs')
+		@show
+		</div>
+	</div>
+
 	@yield('content')
 
 	<!-- Scripts -->
