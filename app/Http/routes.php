@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::group(array('namespace' => 'Admin'), function()
 {
@@ -27,7 +27,7 @@ Route::resource('admin/tags', 'TagsController');
 Route::resource('admin/taxes', 'TaxesController');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
+	'profile' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin.layout')
 
 @section('breadcrumbs')
     {!! Breadcrumbs::render('users_show', $user) !!}

@@ -150,6 +150,16 @@ div.box {
     background: none !important;
 }
 
+.slider {
+    position: relative;
+    margin: 0 auto;
+    top: 0px;
+    left: 0px;
+    width: 1300px;
+    height: 500px;
+    overflow: hidden;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

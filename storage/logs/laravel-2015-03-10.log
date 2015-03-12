@@ -1,0 +1,15 @@
+[2015-03-10 22:44:45] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'App\Http\Controllers\Admin\Hash' not found' in C:\wamp\www\CommerceElectronique\app\Http\Controllers\Admin\AdminAuthController.php:68
+Stack trace:
+#0 C:\wamp\www\CommerceElectronique\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-03-10 22:45:20] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Illuminate\Contracts\Auth\Hash' not found' in C:\wamp\www\CommerceElectronique\app\Http\Controllers\Admin\AdminAuthController.php:69
+Stack trace:
+#0 C:\wamp\www\CommerceElectronique\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  
+[2015-03-10 22:56:08] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'echo' (T_ECHO)' in C:\wamp\www\CommerceElectronique\storage\framework\views\37172926f283af112164c30849740e76:7
+Stack trace:
+#0 C:\wamp\www\CommerceElectronique\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(116): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError(Array)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#2 {main}  

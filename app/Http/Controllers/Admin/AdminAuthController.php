@@ -78,15 +78,20 @@ class AdminAuthController extends Controller {
                     'email' => 'These credentials do not match our records.',
                 ]);
         }
-        elseif (!$user || ($user && !$user->isAdmin())) {
+        elseif ($user && !$user->isAdmin()) {
             return redirect('/admin/auth/login')
                 ->withInput($request->only('email'))
                 ->withErrors([
                     'email' => 'These credentials do not have admin privileges.',
                 ]);
         }
-
-
+        else {
+            return redirect('/admin/auth/login')
+                ->withInput($request->only('email'))
+                ->withErrors([
+                    'email' => 'Could not log in.',
+                ]);
+        }
     }
 
     /**
@@ -98,7 +103,7 @@ class AdminAuthController extends Controller {
     {
         $this->auth->logout();
 
-        return redirect('/');
+        return redirect('/admin/auth/login');
     }
 
     /**

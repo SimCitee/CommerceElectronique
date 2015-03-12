@@ -15,4 +15,5 @@ return [
     */
 
     'not_specified' => 'Not specified',
+    'enter_keywork' => 'Enter keyword'
 ];

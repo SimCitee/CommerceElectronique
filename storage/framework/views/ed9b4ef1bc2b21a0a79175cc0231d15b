@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            Accueil
+        </div>
+        <div class="col-md-2">
+            <?php echo Form::open(['action' => 'Admin\UsersController@store', 'class' => 'form-horizontal']); ?>
+
+            <div class="input-group">
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="<?php echo e(Lang::get('general.enter_keywork')); ?>">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+            </div>
+            <?php echo Form::close(); ?>
+
+        </div>
+    </div>
+</div>
