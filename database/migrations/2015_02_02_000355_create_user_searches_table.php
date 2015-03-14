@@ -17,6 +17,7 @@ class CreateUserSearchesTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->text('search_expression');
+			$table->integer('search_count')->unsigned();
 			$table->timestamps();
 			$table->foreign('user_id')->references('id')->on('users');
 		});

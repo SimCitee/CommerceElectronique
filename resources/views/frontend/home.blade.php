@@ -9,6 +9,37 @@
 			<div class="col-md-8">
 				<h2>{{ Lang::get('products.latest_products') }}</h2>
 				<hr/>
+
+				<div class="row no-margin">
+					@foreach($products as $product)
+						<div class="col-md-2 product_wrapper third-width">
+							<div class="product_image">
+								<div class="wrapper">
+									<a class="bloc" href="{{ action('ProductsController@show', $product->id) }}">
+										<img src="{{ $product->image_path }}" />
+									</a>
+								</div>
+							</div>
+							<div class="product_details">
+								<div class="col-md-6 no-padding">
+									<div class="col-md-12">
+										<a class="product_name" href="{{ action('ProductsController@show', $product->id) }}">{{ $product->name }}</a>
+									</div>
+									<div class="col-md-12">
+										<span class="product_price">$12.99</span>
+									</div>
+								</div>
+
+								<div class="col-md-6 no-padding">
+									<button type="button" class="btn btn-danger">
+										<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;
+										{{ Lang::get('products.add_to_cart') }}
+									</button>
+								</div>
+							</div>
+						</div>
+					@endforeach
+				</div>
 			</div>
 			<div class="col-md-4">
 				<h2>{{ Lang::get('products.popular_products') }}</h2>
@@ -44,7 +75,8 @@
 				$SlideDuration: 800,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
 				$MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
 				//$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
-				//$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+				$SlideHeight: 500,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+				$SlideHeight: 500,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
 				$SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
 				$DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
 				$ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.

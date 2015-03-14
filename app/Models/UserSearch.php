@@ -6,7 +6,8 @@ class UserSearch extends Model {
 
     protected $fillable = [
         'user_id',
-        'search_expression'
+        'search_expression',
+        'search_count'
     ];
 
     public function user()

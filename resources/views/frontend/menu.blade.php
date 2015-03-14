@@ -3,11 +3,13 @@
         <div class="col-md-1">
             Accueil
         </div>
-        <div class="col-md-2">
-            {!! Form::open(['action' => 'Admin\UsersController@store', 'class' => 'form-horizontal']) !!}
+        <div class="col-md-3">
+            {!! Form::open(['action' => 'UserSearchController@index', 'class' => 'form-horizontal', 'method' => 'GET']) !!}
             <div class="input-group">
-                <input type="text" class="form-control" id="exampleInputAmount" placeholder="{{ Lang::get('general.enter_keywork') }}">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                <input type="text" class="form-control" name="query" placeholder="{{ Lang::get('general.enter_keywork') }}">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
             </div>
             {!! Form::close() !!}
         </div>

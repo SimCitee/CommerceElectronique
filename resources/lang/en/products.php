@@ -17,4 +17,5 @@ return [
     'latest_products' => 'Latest products',
     'popular_products' => 'Popular products',
     'featured_products'     => 'Featured products',
+    'add_to_cart'     => 'Add to cart',
 ];

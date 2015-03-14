@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Http\Controllers\Controller;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +33,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('frontend.home');
+		$products = Product::orderBy('created_at')->take(3)->get();
+		return view('frontend.home', compact('products'));
 	}
 
 }

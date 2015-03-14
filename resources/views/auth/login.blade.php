@@ -18,9 +18,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+						{!! Form::open(['action' => 'Auth\AuthController@postLogin', 'class' => 'form-horizontal']) !!}
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>
 							<div class="col-md-6">
@@ -54,7 +52,7 @@
 								<a href="/password/email">Forgot Your Password?</a>
 							</div>
 						</div>
-					</form>
+						{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

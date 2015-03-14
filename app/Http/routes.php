@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/search', 'UserSearchController@index');
 
 Route::group(array('namespace' => 'Admin'), function()
 {

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Models\Address;
 use App\Models\Group;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -40,10 +41,12 @@ class AuthController extends Controller {
         $this->auth = $auth;
         $this->registrar = $registrar;
 
+//        dd($auth);
+
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    public function postRegister(CreateUserRequest $request)
+    public function postRegister(Request $request)
     {
         $addressInput = $request->only('street_number', 'street_name', 'city', 'province', 'country', 'zip_code', 'latitude', 'longitude');
         $address = Address::create($addressInput);
@@ -51,8 +54,10 @@ class AuthController extends Controller {
         $userInput = $request->except($addressInput);
         $userInput['address_id'] = $address->id;
         $userInput['password'] = bcrypt($userInput['password']);
-        User::create($userInput);
+        $user = User::create($userInput);
 
-        return redirect('/');
+        $this->auth->login($user);
+
+        return redirect($this->redirectPath());
     }
 }
