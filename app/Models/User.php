@@ -71,7 +71,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function fullname() {
-        return $this->first_name.' '.$this->last_name;
+        if (!empty($this->first_name) && !empty($this->last_name))
+            return $this->first_name.' '.$this->last_name;
+        elseif (!empty($this->first_name))
+            return $this->first_name;
+        else
+            return '';
     }
 
     public function isAdmin()

@@ -52,6 +52,7 @@
             background: url(./img/b21.png) no-repeat;
             overflow:hidden;
             cursor: pointer;
+            top: -150px !important;
         }
         .jssorb21 div { background-position: -5px -5px; }
         .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
@@ -92,10 +93,10 @@
         .jssora21rdn { background-position: -303px -33px; }
     </style>
     <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;">
+        <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 150px !important; left: 8px;">
         </span>
     <!-- Arrow Right -->
-        <span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
+        <span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 150px !important; right: 8px">
         </span>
     <!-- Arrow Navigator Skin End -->
     <a style="display: none" href="http://www.jssor.com">Image Slider</a>

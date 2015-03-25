@@ -225,6 +225,88 @@ div.box {
     height: 100%;
 }
 
+.search {
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   Menu
+   ========================================================================== */
+.menu {
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+}
+
+.menu, .menu-item {
+    height: 60px;
+}
+
+.menu-item {
+    width: auto;
+    padding-top: 23px;
+}
+.menu-item:hover {
+    border-top: 3px solid darkturquoise;
+    outline: 1px solid #dedede;
+    cursor: pointer;
+}
+.menu-item:hover > .menu-label {
+    margin-top: -3px;
+}
+
+.menu-item-popup {
+    position: absolute;
+    background:  red;
+    width: auto;
+    height: 300px;
+    z-index: 9999;
+    margin-left: -15px;
+    margin-top: 2px;
+    opacity: 0;
+}
+
+.menu-item:hover > .menu-item-popup {
+    opacity: 1;
+}
+
+.menu-item-popup .wrapper {
+    padding: 20px;
+}
+
+.menu-label {
+    height: 100%;
+    text-align: center;
+}
+.menu-label a { color: #777777; text-decoration: none;}
+
+/* ==========================================================================
+   Transition
+   ========================================================================== */
+.slowTransition {
+    -webkit-transition: all 2.5s ease-in-out;
+    -moz-transition: all 2.5s ease-in-out;
+    -o-transition: all 2.5s ease-in-out;
+}
+
+.transition {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+.fastTransition {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+
+.XfastTransition {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

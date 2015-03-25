@@ -75,8 +75,7 @@
 				$SlideDuration: 800,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
 				$MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
 				//$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
-				$SlideHeight: 500,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
-				$SlideHeight: 500,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+				$SlideHeight: 400,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
 				$SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
 				$DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
 				$ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
@@ -93,7 +92,7 @@
 
 				$BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
 					$Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
-					$ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+					$ChanceToShow: 0,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
 					$AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
 					$Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
 					$Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
@@ -104,7 +103,7 @@
 
 				$ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
 					$Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
-					$ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+					$ChanceToShow: 0,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
 					$AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
 					$Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
 				}
