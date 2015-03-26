@@ -1,7 +1,9 @@
 @extends('frontend.layout')
 
+@section('breadcrumbs-wrapper')
+@endsection
+
 @section('content')
-	@include('frontend.menu')
 	@include('frontend.slider')
 
 	<div class="container">

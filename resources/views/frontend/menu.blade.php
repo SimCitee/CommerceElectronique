@@ -17,7 +17,7 @@
             <div class="col-md-1 menu-item">
                 <div class="menu-label"><a href="#"> {{ Lang::get('menu.on_sale') }}</a></div>
             </div>
-            <div class="col-md-3 col-md-offset-5">
+            <div class="col-md-3 col-md-offset-5 search-col">
                 <div class="search">
                     {!! Form::open(['action' => 'UserSearchController@index', 'class' => 'form-horizontal', 'method' => 'GET']) !!}
                     <div class="input-group">
@@ -32,3 +32,18 @@
         </div>
     </div>
 </div>
+
+@section('layout-script')
+    <script>
+        jQuery(document).ready(function ($) {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 70 && !$(".menu").hasClass('fixed')) {
+                    $(".menu").addClass('fixed');
+                }
+                else if ($(window).scrollTop() < 70 && $(".menu").hasClass('fixed')) {
+                    $(".menu").removeClass('fixed');
+                }
+            });
+        });
+    </script>
+@endsection

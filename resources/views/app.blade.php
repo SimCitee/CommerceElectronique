@@ -22,21 +22,25 @@
 	<![endif]-->
 </head>
 <body>
-	@section('navbar')
+
+	@yield('header')
+
+	@section('breadcrumbs-wrapper')
+		<div id="breadcrumbs" class="container-fluid">
+			<div class="row">
+				@yield('breadcrumbs')
+			</div>
+		</div>
 	@show
 
-	<div id="breadcrumbs" class="container-fluid">
-		<div class="row">
-		@section('breadcrumbs')
-		@show
-		</div>
-	</div>
-
 	@yield('content')
+
+	@yield('footer')
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	@yield('layout-script')
 	@yield('script')
 
 </body>

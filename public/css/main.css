@@ -127,6 +127,10 @@ div.box {
     margin-bottom: 0 !important;
 }
 
+.medium-bottom-margin {
+    margin-bottom: 20px;
+}
+
 .align-right {
     float: right;
 }
@@ -225,6 +229,10 @@ div.box {
     height: 100%;
 }
 
+.search-col {
+    float: right;
+    padding: 0;
+}
 .search {
     margin-top: 15px;
 }
@@ -235,6 +243,15 @@ div.box {
 .menu {
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
+    background: #fff;
+    width: 100%;
+}
+
+.menu.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
 
 .menu, .menu-item {
@@ -279,6 +296,27 @@ div.box {
 }
 .menu-label a { color: #777777; text-decoration: none;}
 
+/* ==========================================================================
+   Cart
+   ========================================================================== */
+.shopping-cart {
+    background: darkturquoise;
+    height: 50px;
+    padding: 8px 15px;
+    color: #fff;
+}
+
+.shopping-cart .shopping-cart-icon {
+    font-size: 30px;
+}
+
+.shopping-cart .summary-container {
+    padding-top: 3px;
+    padding-left: 30px;
+}
+.shopping-cart .summary-container label {
+    margin-bottom: -3px;
+}
 /* ==========================================================================
    Transition
    ========================================================================== */
