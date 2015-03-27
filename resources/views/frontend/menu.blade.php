@@ -37,10 +37,10 @@
     <script>
         jQuery(document).ready(function ($) {
             $(window).scroll(function () {
-                if ($(window).scrollTop() > 70 && !$(".menu").hasClass('fixed')) {
+                if ($(window).scrollTop() > 140 && !$(".menu").hasClass('fixed')) {
                     $(".menu").addClass('fixed');
                 }
-                else if ($(window).scrollTop() < 70 && $(".menu").hasClass('fixed')) {
+                else if ($(window).scrollTop() < 140 && $(".menu").hasClass('fixed')) {
                     $(".menu").removeClass('fixed');
                 }
             });
