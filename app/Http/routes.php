@@ -17,12 +17,12 @@ Route::get('/search', 'UserSearchController@index');
 Route::group(array('namespace' => 'Admin'), function()
 {
 	Route::resource('admin/users', 'UsersController');
+	Route::resource('admin/products', 'ProductsController');
 	Route::get('/admin', 'AdminAuthController@getLogin');
 });
 
 
 Route::resource('admin/group', 'GroupsController');
-Route::resource('admin/products', 'ProductsController');
 Route::resource('admin/productCategories', 'ProductCategoriesController');
 Route::resource('admin/tags', 'TagsController');
 Route::resource('admin/taxes', 'TaxesController');

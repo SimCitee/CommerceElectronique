@@ -1,0 +1,124 @@
+<?php $__env->startSection('breadcrumbs'); ?>
+    <?php echo Breadcrumbs::render('products_edit', $product); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="container-fluid">
+        <div class="row spacing">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>
+                    <?php echo e(Lang::get('products.edit_product') . ' ' . $product->name); ?>
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+                    <?php if($errors->any()): ?>
+                        <ul class="alert alert-danger">
+                            <?php foreach($errors->all() as $error): ?>
+                                <li><?php echo e($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+
+                <div class="box">
+                    <?php echo Form::open(['action' => ['Admin\ProductsController@update', $product->id], 'class' => 'form-horizontal', 'method' => 'PUT']); ?>
+
+                    <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
+                    <div>
+                        <h3>
+                            <?php echo e(Lang::get('products.general_informations')); ?>
+
+                        </h3>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('inventory_status_id') ? 'has-error' : ''); ?>">
+                        <label for="inventory_status" class="col-sm-2 control-label"><?php echo e(Lang::get('products.inventory_status')); ?></label>
+                        <div class="col-sm-10">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group <?php echo e($errors->first('name') ? 'has-error' : ''); ?>">
+                        <label for="name" class="col-sm-2 control-label"><?php echo e(Lang::get('products.name')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" maxlength="100" placeholder="<?php echo e(Lang::get('products.name')); ?>" value="<?php echo e(old('name') ? old('name') : $product->name); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('description') ? 'has-error' : ''); ?>">
+                        <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.description')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="description" name="description" placeholder="<?php echo e(Lang::get('products.description')); ?>" value="<?php echo e(old('description') ? old('description') : $product->description); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('length') ? 'has-error' : ''); ?>">
+                        <label for="length" class="col-sm-2 control-label"><?php echo e(Lang::get('products.length')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="length" name="length" maxlength="25" placeholder="<?php echo e(Lang::get('products.length')); ?>" value="<?php echo e(old('length') ? old('length') : $product->length); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('width') ? 'has-error' : ''); ?>">
+                        <label for="width" class="col-sm-2 control-label"><?php echo e(Lang::get('products.width')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="width" name="width" maxlength="150" placeholder="<?php echo e(Lang::get('products.width')); ?>" value="<?php echo e(old('width') ? old('width') : $product->width); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('height') ? 'has-error' : ''); ?>">
+                        <label for="height" class="col-sm-2 control-label"><?php echo e(Lang::get('products.height')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="height" name="height" maxlength="150" placeholder="<?php echo e(Lang::get('products.height')); ?>" value="<?php echo e(old('height') ? old('height') : $product->height); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('weight') ? 'has-error' : ''); ?>">
+                        <label for="weight" class="col-sm-2 control-label"><?php echo e(Lang::get('products.weight')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="weight" name="weight" maxlength="150" placeholder="<?php echo e(Lang::get('products.weight')); ?>" value="<?php echo e(old('weight') ? old('weight') : $product->weight); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('sku') ? 'has-error' : ''); ?>">
+                        <label for="sku" class="col-sm-2 control-label"><?php echo e(Lang::get('products.sku')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="sku" name="sku" maxlength="150" placeholder="<?php echo e(Lang::get('products.sku')); ?>" value="<?php echo e(old('sku') ? old('sku') : $product->sku); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('upc') ? 'has-error' : ''); ?>">
+                        <label for="upc" class="col-sm-2 control-label"><?php echo e(Lang::get('products.upc')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="upc" name="upc" maxlength="150" placeholder="<?php echo e(Lang::get('products.upc')); ?>" value="<?php echo e(old('upc') ? old('upc') : $product->upc); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('quantity') ? 'has-error' : ''); ?>">
+                        <label for="quantity" class="col-sm-2 control-label"><?php echo e(Lang::get('products.quantity')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="quantity" name="quantity" maxlength="150" placeholder="<?php echo e(Lang::get('products.quantity')); ?>" value="<?php echo e(old('quantity') ? old('quantity') : $product->quantity); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo e($errors->first('date_available') ? 'has-error' : ''); ?>">
+                        <label for="image_path" class="col-sm-2 control-label"><?php echo e(Lang::get('products.date_available')); ?></label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="date_available" name="date_available" maxlength="150" placeholder="<?php echo e(Lang::get('products.date_available')); ?>" value="<?php echo e(old('date_available') ? old('date_available') : $product->date_available); ?>">
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">
+                                <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                                <?php echo e(Lang::get('actions.save')); ?>
+
+                            </button>
+                        </div>
+                    </div>
+                    <?php echo Form::close(); ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,230 @@
+<?php $__env->startSection('breadcrumbs'); ?>
+    <?php echo Breadcrumbs::render('products_show', $product); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="container-fluid">
+        <div class="row spacing">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>
+                    <?php echo e($product->name); ?>
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="box">
+                    <form class="form-horizontal">
+                        <div>
+                            <h3>
+                                <?php echo e(Lang::get('products.general_informations')); ?>
+
+                            </h3>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="inventory_status" class="col-sm-2 control-label"><?php echo e(Lang::get('products.image_path')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo HTML::image('img/products/' . $product->image_path, 'Product', array( 'width' => 200, 'height' => 200 )); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="inventory_status" class="col-sm-2 control-label"><?php echo e(Lang::get('products.inventory_status')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($product->inventoryStatus->name_fr); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="name" class="col-sm-2 control-label"><?php echo e(Lang::get('products.name')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($product->name); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.description')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($product->description); ?></p>
+                            </div>
+                        </div>
+                        <?php if($product->length != "0.00"): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.length')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->length); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($product->width != "0.00"): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.width')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->width); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($product->height != "0.00"): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.height')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->height); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($product->weight != "0.00"): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.weight')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->weight); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($product->sku): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.sku')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->sku); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($product->upc): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.upc')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->upc); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <div class="form-group no-bottom-margin">
+                            <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.quantity')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($product->quantity); ?></p>
+                            </div>
+                        </div>
+                        <?php if($product->date_available): ?>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.date_available')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($product->date_available); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <hr />
+                        <?php if($boardgame): ?>
+                            <div>
+                                <h3>
+                                    <?php echo e(Lang::get('products.board_game_informations')); ?>
+
+                                </h3>
+                            </div>
+                            <div class="form-group no-bottom-margin">
+                                <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.language')); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo e($boardgame->language->code); ?></p>
+                                </div>
+                            </div>
+                            <?php if(!is_null($boardgame->minimum_players)): ?>
+                                <div class="form-group no-bottom-margin">
+                                    <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.minimum_players')); ?></label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"><?php echo e($boardgame->minimum_players); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <?php if(!is_null($boardgame->maximum_players)): ?>
+                                <div class="form-group no-bottom-margin">
+                                    <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.maximum_players')); ?></label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"><?php echo e($boardgame->maximum_players); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <?php if(!is_null($boardgame->minimum_age)): ?>
+                                <div class="form-group no-bottom-margin">
+                                    <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.minimum_age')); ?></label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"><?php echo e($boardgame->minimum_age); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <?php if(!is_null($boardgame->average_game_time)): ?>
+                                <div class="form-group no-bottom-margin">
+                                    <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.average_game_time')); ?></label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"><?php echo e($boardgame->average_game_time); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <?php if(!is_null($boardgame->website)): ?>
+                                <div class="form-group no-bottom-margin">
+                                    <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.website')); ?></label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"><?php echo e($boardgame->website); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <?php if(!is_null($boardgame->release_date)): ?>
+                                <div class="form-group no-bottom-margin">
+                                    <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.release_date')); ?></label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"><?php echo e($boardgame->release_date); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <hr />
+                        <?php endif; ?>
+
+                        <div>
+                            <h3>
+                                <?php echo e(Lang::get('products.price_informations')); ?>
+
+                            </h3>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.cost_price')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($price->cost_price); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.prime_cost')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($price->prime_cost); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group no-bottom-margin">
+                            <label for="description" class="col-sm-2 control-label"><?php echo e(Lang::get('products.retail_price')); ?></label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static"><?php echo e($price->retail_price); ?></p>
+                            </div>
+                        </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-2">
+                            <a href="<?php echo e(action('Admin\ProductsController@edit', $product->id)); ?>">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    <?php echo e(Lang::get('actions.edit')); ?>
+
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php if($product->orders): ?>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box">
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

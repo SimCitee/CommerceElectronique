@@ -1,0 +1,138 @@
+<?php $__env->startSection('breadcrumbs'); ?>
+    <?php echo Breadcrumbs::render('products'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1">
+                <h1>
+                    <?php echo e(Lang::get('products.product')); ?>
+
+                </h1>
+            </div>
+            <div class="col-md-11">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">
+                <a href="<?php echo e(action('Admin\ProductsController@create')); ?>">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <?php echo e(Lang::get('actions.add')); ?>
+
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><?php echo e(Lang::get('products.name')); ?></th>
+                        <th><?php echo e(Lang::get('products.description')); ?></th>
+                        <th><?php echo e(Lang::get('products.length')); ?></th>
+                        <th><?php echo e(Lang::get('products.width')); ?></th>
+                        <th><?php echo e(Lang::get('products.height')); ?></th>
+                        <th><?php echo e(Lang::get('products.weight')); ?></th>
+                        <th><?php echo e(Lang::get('products.sku')); ?></th>
+                        <th><?php echo e(Lang::get('products.upc')); ?></th>
+                        <th><?php echo e(Lang::get('actions.actions')); ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($products as $product): ?>
+                        <tr id="product_<?php echo e($product->id); ?>_row">
+                            <td>
+                                <?php echo e($product->id); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->name); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->description); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->length != "0.00" ? $product->length : "N.D."); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->width != "0.00" ? $product->width : "N.D."); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->height != "0.00" ? $product->height : "N.D."); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->weight != "0.00" ? $product->weight : "N.D."); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->sku ? $product->sku : "N.D."); ?>
+
+                            </td>
+                            <td>
+                                <?php echo e($product->upc ? $product->upc : "N.D."); ?>
+
+                            </td>
+                            <td>
+                                <a class="actions" href="<?php echo e(action('Admin\ProductsController@show', $product->id)); ?>">
+                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                </a>
+                                <a class="actions" href="<?php echo e(action('Admin\ProductsController@edit', $product->id)); ?>">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+
+                                <?php echo Form::open(['action' => ['Admin\ProductsController@destroy', $product->id], 'id' => 'product'.$product->id, 'class' => 'delete-form inline', 'method' => 'DELETE']); ?>
+
+                                <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
+                                <button class="btn btn-default plain" type="submit">
+                                    <a class="actions" href="<?php echo e(action('Admin\ProductsController@destroy', $product->id)); ?>">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </a>
+                                </button>
+
+                                <?php echo Form::close(); ?>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+    <?php echo HTML::script('js/jquery.form.min.js'); ?>
+
+    <script>
+        $(document).ready(function() {
+            var options = {
+                success:       showResponse
+            };
+
+            $('.delete-form').submit(function() {
+                $(this).ajaxSubmit(options);
+                return false;
+            });
+        });
+
+        function showResponse(responseText, statusText, xhr, $form)  {
+            if (parseInt(responseText) > 0) {
+                $('#product_'+responseText+'_row').remove();
+            }
+        }
+    </script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

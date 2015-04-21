@@ -36,12 +36,4 @@
             </div>
         </div>
     </nav>
-
-    @section('breadcrumbs-wrapper')
-        <div id="breadcrumbs" class="container-fluid">
-            <div class="row">
-                @yield('breadcrumbs')
-            </div>
-        </div>
-    @show
 @endsection

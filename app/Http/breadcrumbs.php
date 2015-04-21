@@ -33,3 +33,30 @@ Breadcrumbs::register('users_show', function($breadcrumbs, $user)
     $breadcrumbs->parent('users');
     $breadcrumbs->push($user->fullname(), route('admin.users.show', $user));
 });
+
+// Admin > Products
+Breadcrumbs::register('products', function($breadcrumbs)
+{
+    $breadcrumbs->push(Lang::get('products.product'), route('admin.products.index'));
+});
+
+// Admin > Products > Create
+Breadcrumbs::register('products_create', function($breadcrumbs)
+{
+    $breadcrumbs->parent('products');
+    $breadcrumbs->push(Lang::get('products.create_new_product'), route('admin.products.create'));
+});
+
+// Admin > Products > Edit
+Breadcrumbs::register('products_edit', function($breadcrumbs, $product)
+{
+    $breadcrumbs->parent('products');
+    $breadcrumbs->push($product->name, route('admin.products.edit', $product));
+});
+
+// Admin > Products > Show
+Breadcrumbs::register('products_show', function($breadcrumbs, $product)
+{
+    $breadcrumbs->parent('products');
+    $breadcrumbs->push($product->name, route('admin.products.show', $product));
+});
