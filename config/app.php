@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'fr',
+	'locale' => 'en',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'fr',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -149,7 +149,8 @@ return [
 		/*
 		 * Custom Service Providers...
 		 */
-		'DaveJamesMiller\Breadcrumbs\ServiceProvider'
+		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider'
 
 	],
 
@@ -200,6 +201,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'		=> 'Illuminate\Html\FormFacade', 'HTML'=> 'Illuminate\Html\HtmlFacade',
 		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
+		'Cart'        => 'Gloudemans\Shoppingcart\Facades\Cart',
 	],
 
 ];

@@ -16,4 +16,8 @@ class ProductPrice extends Model {
         return $this->belongsTo('App\Models\Product');
     }
 
+    public function retailPrice()
+    {
+        return $this->retail_price;
+    }
 }

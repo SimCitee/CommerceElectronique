@@ -41,4 +41,5 @@ return [
     'personnal_information' => 'Personnal information',
     'account_information' => 'Account information',
     'address_information' => 'Address information',
+    'user_searched_expressions' => 'User searched expressions',
 ];

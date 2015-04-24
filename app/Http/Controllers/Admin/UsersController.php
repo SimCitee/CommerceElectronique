@@ -98,6 +98,9 @@ class UsersController extends Controller {
 
 		$user = User::find($id);
 		$user->address->update($addressInput);
+
+		$userInput['password'] = bcrypt($userInput['password']);
+
 		$user->update($userInput);
 
 		return redirect()->route('admin.users.show', $id);

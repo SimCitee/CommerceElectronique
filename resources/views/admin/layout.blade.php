@@ -15,7 +15,33 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/"></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Config::get('languages')[App::getLocale()] }}&nbsp;&nbsp;
+                            @if (App::getLocale() == "en")
+                                {!! HTML::image('img/icons/languageFlagEN.png') !!}
+                            @else
+                                {!! HTML::image('img/icons/languageFlagFR.png') !!}
+                            @endif
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                    <li>
+                                        <a href="{{ action('LanguageController@switchLang',$lang) }}">
+                                            {{$language}}
+                                            &nbsp;&nbsp;
+                                            @if (App::getLocale() == "en")
+                                                {!! HTML::image('img/icons/languageFlagFR.png') !!}
+                                            @else
+                                                {!! HTML::image('img/icons/languageFlagEN.png') !!}
+                                            @endif
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">

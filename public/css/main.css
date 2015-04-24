@@ -94,6 +94,10 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+footer {
+    height: 200px;
+}
+
 .no-padding {
     padding: 0 !important;
 }
@@ -176,6 +180,11 @@ div.box {
     margin: 0 10px 0 0;
 }
 
+.product_wrapper.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
 .product_wrapper.half-width {
     width: 50%;
     max-width: 50%;
@@ -184,6 +193,11 @@ div.box {
 .product_wrapper.third-width {
     width: 32%;
     max-width: 32%;
+}
+
+.product_wrapper.one-fifth-width {
+    width: 19%;
+    max-width: 19%;
 }
 
 .product_wrapper .product_image {
@@ -275,7 +289,7 @@ div.box {
     position: absolute;
     background:  red;
     width: auto;
-    height: 300px;
+    height: 0px;
     z-index: 9999;
     margin-left: -15px;
     margin-top: 2px;
@@ -284,6 +298,7 @@ div.box {
 
 .menu-item:hover > .menu-item-popup {
     opacity: 1;
+    height: 300px;
 }
 
 .menu-item-popup .wrapper {
@@ -304,6 +319,14 @@ div.box {
     height: 50px;
     padding: 8px 15px;
     color: #fff;
+}
+
+.shopping-cart a{
+    color: #fff;
+}
+
+.shopping-cart a:hover span{
+    text-decoration: underline;
 }
 
 .shopping-cart .shopping-cart-icon {

@@ -10,12 +10,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | General Language Lines
+    | Menu Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'not_specified' => 'Not specified',
-    'enter_keywork' => 'Enter keyword',
-    'french' => 'French',
-    'english' => 'English',
+    'home' => 'Accueil',
+    'boardgames' => 'Jeux de table',
+    'accessories' => 'Accessoires',
+    'on_sale' => 'En vente',
 ];

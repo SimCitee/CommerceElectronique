@@ -1,6 +1,4 @@
-@extends('app')
-
-@section('header')
+<?php $__env->startSection('header'); ?>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -16,46 +14,47 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Config::get('languages')[App::getLocale()] }}&nbsp;&nbsp;
-                            @if (App::getLocale() == "en")
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo e(Config::get('languages')[App::getLocale()]); ?>&nbsp;&nbsp;
+                            <?php if(App::getLocale() == "en"): ?>
                                 <img u="image" src="./img/icons/languageFlagEN.png" />
-                            @else
+                            <?php else: ?>
                                 <img u="image" src="./img/icons/languageFlagFR.png" />
-                            @endif
+                            <?php endif; ?>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            @foreach (Config::get('languages') as $lang => $language)
-                                @if ($lang != App::getLocale())
+                            <?php foreach(Config::get('languages') as $lang => $language): ?>
+                                <?php if($lang != App::getLocale()): ?>
                                     <li>
-                                        <a href="{{ action('LanguageController@switchLang',$lang) }}">
-                                            {{$language}}
+                                        <a href="<?php echo e(action('LanguageController@switchLang',$lang)); ?>">
+                                            <?php echo e($language); ?>
+
                                             &nbsp;&nbsp;
-                                            @if (App::getLocale() == "en")
+                                            <?php if(App::getLocale() == "en"): ?>
                                                 <img u="image" src="./img/icons/languageFlagFR.png" />
-                                            @else
+                                            <?php else: ?>
                                                 <img u="image" src="./img/icons/languageFlagEN.png" />
-                                            @endif
+                                            <?php endif; ?>
                                         </a>
                                     </li>
-                                @endif
-                            @endforeach
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    @if (Auth::guest())
-                        <li><a href="{{ action('Auth\AuthController@getLogin') }}">Login</a></li>
-                        <li><a href="{{ action('Auth\AuthController@getRegister') }}">Register</a></li>
-                    @else
+                    <?php if(Auth::guest()): ?>
+                        <li><a href="<?php echo e(action('Auth\AuthController@getLogin')); ?>">Login</a></li>
+                        <li><a href="<?php echo e(action('Auth\AuthController@getRegister')); ?>">Register</a></li>
+                    <?php else: ?>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->first_name }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo e(Auth::user()->first_name); ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a></li>
+                                <li><a href="<?php echo e(action('Auth\AuthController@getLogout')); ?>">Logout</a></li>
                             </ul>
                         </li>
-                    @endif
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -69,8 +68,8 @@
                         <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                     </div>
                     <div class="col-md-10 summary-container">
-                        <label style="float: left; width: auto; clear: both;">{{Lang::get('products.shopping_cart')}}</label>
-                        <a href="{{ action('CartController@index') }}"><span style="float: left;"><span class="count">{{Cart::count()}}</span>&nbsp;{{Lang::get('products.items_in_your_cart')}}</span></a>
+                        <label style="float: left; width: auto; clear: both;"><?php echo e(Lang::get('products.shopping_cart')); ?></label>
+                        <a href="<?php echo e(action('CartController@index')); ?>"><span style="float: left;"><span class="count"><?php echo e(Cart::count()); ?></span>&nbsp;<?php echo e(Lang::get('products.items_in_your_cart')); ?></span></a>
                     </div>
                 </div>
             </div>
@@ -78,5 +77,6 @@
     </div>
 
 
-    @include('frontend.menu')
-@endsection
+    <?php echo $__env->make('frontend.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

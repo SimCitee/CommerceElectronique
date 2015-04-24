@@ -14,18 +14,18 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'latest_products' => 'Latest products',
-    'popular_products' => 'Popular products',
-    'popular_product' => 'Popular product',
-    'featured_products'     => 'Featured products',
-    'add_to_cart'     => 'Add to cart',
+    'latest_products' => 'Derniers produits',
+    'popular_products' => 'Produits populaires',
+    'popular_products' => 'Produit populaire',
+    'featured_products'     => 'Produits vedettes',
+    'add_to_cart'     => 'Ajouter au panier',
 
-    'product'     => 'Product',
-    'create_new_product'     => 'Create new product',
-    'general_informations'     => 'General informations',
+    'product'     => 'Produit',
+    'create_new_product'     => 'Créer un nouveau produit',
+    'general_informations'     => 'Informations générales',
 
-    'inventory_status'     => 'Inventory status',
-    'name'     => 'Name',
+    'inventory_status'     => 'Status inventaire',
+    'name'     => 'Nom',
     'description'     => 'Description',
     'length'     => 'Length',
     'width'     => 'Width',
@@ -59,14 +59,4 @@ return [
     'updated_at'     => 'Updated at',
 
     'edit_product'     => 'Edit product',
-
-    'shopping_cart'     => 'Shopping cart',
-    'shopping_cart_clear'     => 'Clear shopping cart',
-    'shopping_cart_empty'     => 'Shopping cart is empty',
-    'items_in_your_cart'     => 'items in your cart',
-    'items_added_to_cart'     => 'Item(s) added to your cart.',
-    'product_name'     => 'Product name',
-    'unit_price'     => 'Unit price',
-    'qty'     => 'Qty',
-    'shopping_subtotal'     => 'Subtotal',
 ];

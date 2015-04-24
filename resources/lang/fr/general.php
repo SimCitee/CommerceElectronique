@@ -14,8 +14,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'not_specified' => 'Not specified',
-    'enter_keywork' => 'Enter keyword',
-    'french' => 'French',
-    'english' => 'English',
+    'not_specified' => 'Non spécifé',
+    'enter_keywork' => 'Entrez un mot clé',
+    'french' => 'Français',
+    'english' => 'Anglais',
 ];

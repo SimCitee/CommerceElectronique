@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/search', 'UserSearchController@index');
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
 Route::group(array('namespace' => 'Admin'), function()
 {
@@ -21,11 +22,18 @@ Route::group(array('namespace' => 'Admin'), function()
 	Route::get('/admin', 'AdminAuthController@getLogin');
 });
 
-
+Route::resource('/products', 'ProductsController');
 Route::resource('admin/group', 'GroupsController');
 Route::resource('admin/productCategories', 'ProductCategoriesController');
 Route::resource('admin/tags', 'TagsController');
 Route::resource('admin/taxes', 'TaxesController');
+
+// Cart routes
+Route::get('/cart', ['uses'=>'CartController@index']);
+Route::post('/cart', ['as'=>'cart.destroy', 'uses'=>'CartController@destroy']);
+Route::post('cart/{productId}', ['as'=>'cart.add', 'uses'=>'CartController@addItem']);
+Route::put('cart/{rowId}', ['as'=>'cart.update', 'uses'=>'CartController@updateItem']);
+Route::delete('cart/{rowId}', ['as'=>'cart.remove', 'uses'=>'CartController@removeItem']);
 
 Route::controllers([
 	'profile' => 'Auth\AuthController',
