@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\BoardGame;
+use App\Models\BoardGameVersion;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller {
@@ -10,11 +12,12 @@ class ProductsController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *
+     * @param  string  $type
 	 * @return Response
 	 */
-	public function index()
+	public function index($type)
 	{
-		//
+        //
 	}
 
 	/**

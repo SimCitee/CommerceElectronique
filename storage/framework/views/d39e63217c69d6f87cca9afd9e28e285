@@ -1,133 +1,137 @@
-@extends('frontend.layout')
+<?php $__env->startSection('breadcrumbs-wrapper'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumbs-wrapper')
-@endsection
-
-@section('content')
-	@include('frontend.slider')
+<?php $__env->startSection('content'); ?>
+	<?php echo $__env->make('frontend.slider', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<h2>{{ Lang::get('products.latest_products') }}</h2>
+				<h2><?php echo e(Lang::get('products.latest_products')); ?></h2>
 				<hr/>
 
 				<div class="row no-margin">
-					@foreach($products as $product)
+					<?php foreach($products as $product): ?>
 						<div class="col-md-2 product_wrapper third-width">
 							<div class="product_image">
 								<div class="wrapper">
-									<a class="bloc" href="{{ action('ProductsController@show', $product->id) }}">
-										<img src="{{ $product->image_path }}" />
+									<a class="bloc" href="<?php echo e(action('ProductsController@show', $product->id)); ?>">
+										<img src="<?php echo e($product->image_path); ?>" />
 									</a>
 								</div>
 							</div>
 							<div class="product_details">
 								<div class="col-md-6 no-padding">
 									<div class="col-md-12">
-										<a class="product_name" href="{{ action('ProductsController@show', $product->id) }}">{{ $product->name }}</a>
+										<a class="product_name" href="<?php echo e(action('ProductsController@show', $product->id)); ?>"><?php echo e($product->name); ?></a>
 									</div>
 									<div class="col-md-12">
-										<span class="product_price">{{ $product->productPrice->first()->retail_price }}</span>
+										<span class="product_price"><?php echo e($product->productPrice->first()->retail_price); ?></span>
 									</div>
 								</div>
 
 								<div class="col-md-6 no-padding">
-									{!! Form::open(['action' => ['CartController@addItem', $product->id], 'class' => 'add-item-form']) !!}
-									<input type="hidden" name="id" value="{{ $product->id }}">
+									<?php echo Form::open(['action' => ['CartController@addItem', $product->id], 'class' => 'add-item-form']); ?>
+
+									<input type="hidden" name="id" value="<?php echo e($product->id); ?>">
 									<button class="btn btn-danger" type="submit">
 										<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;
-										{{ Lang::get('products.add_to_cart') }}
+										<?php echo e(Lang::get('products.add_to_cart')); ?>
+
 									</button>
-									{!! Form::close() !!}
+									<?php echo Form::close(); ?>
+
 								</div>
 							</div>
 						</div>
-					@endforeach
+					<?php endforeach; ?>
 				</div>
 			</div>
 
 			<div class="col-md-4">
-				<h2>{{ Lang::get('products.popular_product') }}</h2>
+				<h2><?php echo e(Lang::get('products.popular_product')); ?></h2>
 				<hr/>
 
 				<div class="row no-margin">
-					@foreach($popularProducts as $product)
+					<?php foreach($popularProducts as $product): ?>
 						<div class="col-md-12 product_wrapper full-width">
 							<div class="product_image">
 								<div class="wrapper">
-									<a class="bloc" href="{{ action('ProductsController@show', $product->id) }}">
-										<img src="{{ $product->image_path }}" />
+									<a class="bloc" href="<?php echo e(action('ProductsController@show', $product->id)); ?>">
+										<img src="<?php echo e($product->image_path); ?>" />
 									</a>
 								</div>
 							</div>
 							<div class="product_details">
 								<div class="col-md-6 no-padding">
 									<div class="col-md-12">
-										<a class="product_name" href="{{ action('ProductsController@show', $product->id) }}">{{ $product->name }}</a>
+										<a class="product_name" href="<?php echo e(action('ProductsController@show', $product->id)); ?>"><?php echo e($product->name); ?></a>
 									</div>
 									<div class="col-md-12">
-										<span class="product_price">{{ $product->productPrice->first()->retail_price }}</span>
+										<span class="product_price"><?php echo e($product->productPrice->first()->retail_price); ?></span>
 									</div>
 								</div>
 
 								<div class="col-md-6 no-padding">
 									<button type="button" class="btn btn-danger">
 										<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;
-										{{ Lang::get('products.add_to_cart') }}
+										<?php echo e(Lang::get('products.add_to_cart')); ?>
+
 									</button>
 								</div>
 							</div>
 						</div>
-					@endforeach
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12">
-				<h2>{{ Lang::get('products.featured_products') }}</h2>
+				<h2><?php echo e(Lang::get('products.featured_products')); ?></h2>
 				<hr/>
 
 				<div class="row no-margin">
-					@foreach($featuredProducts as $product)
+					<?php foreach($featuredProducts as $product): ?>
 						<div class="col-md-12 product_wrapper one-fifth-width">
 							<div class="product_image">
 								<div class="wrapper">
-									<a class="bloc" href="{{ action('ProductsController@show', $product->id) }}">
-										<img src="{{ $product->image_path }}" />
+									<a class="bloc" href="<?php echo e(action('ProductsController@show', $product->id)); ?>">
+										<img src="<?php echo e($product->image_path); ?>" />
 									</a>
 								</div>
 							</div>
 							<div class="product_details">
 								<div class="col-md-6 no-padding">
 									<div class="col-md-12">
-										<a class="product_name" href="{{ action('ProductsController@show', $product->id) }}">{{ $product->name }}</a>
+										<a class="product_name" href="<?php echo e(action('ProductsController@show', $product->id)); ?>"><?php echo e($product->name); ?></a>
 									</div>
 									<div class="col-md-12">
-										<span class="product_price">{{ $product->productPrice->first()->retail_price }}</span>
+										<span class="product_price"><?php echo e($product->productPrice->first()->retail_price); ?></span>
 									</div>
 								</div>
 
 								<div class="col-md-6 no-padding">
 									<button type="button" class="btn btn-danger">
 										<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;
-										{{ Lang::get('products.add_to_cart') }}
+										<?php echo e(Lang::get('products.add_to_cart')); ?>
+
 									</button>
 								</div>
 							</div>
 						</div>
-					@endforeach
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
 	</div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
 	<script src="./js/jssor.js"></script>
 	<script src="./js/jssor.slider.min.js"></script>
-	{!! HTML::script('js/jquery.form.min.js') !!}
+	<?php echo HTML::script('js/jquery.form.min.js'); ?>
+
 
 	<script>
 		jQuery(document).ready(function ($) {
@@ -210,9 +214,10 @@
 			var response = parseInt(responseText);
 
 			if (response > 0) {
-				alert('{{Lang::get('products.items_added_to_cart')}}');
+				alert('<?php echo e(Lang::get('products.items_added_to_cart')); ?>');
 				jQuery('.count').html(response);
 			}
 		}
 	</script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

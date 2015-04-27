@@ -1,0 +1,77 @@
+<?php $__env->startSection('breadcrumbs-wrapper'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row no-margin">
+                    <?php foreach($boardGames as $boardGame): ?>
+                        <div class="col-md-2 product_wrapper third-width">
+                            <div class="product_image">
+                                <div class="wrapper">
+                                    <a class="bloc" href="<?php echo e(action('ProductsController@show', $boardGame->product->id)); ?>">
+                                        <img src="<?php echo e($boardGame->product->image_path); ?>" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product_details">
+                                <div class="col-md-6 no-padding">
+                                    <div class="col-md-12">
+                                        <a class="product_name" href="<?php echo e(action('ProductsController@show', $boardGame->product->id)); ?>"><?php echo e($boardGame->product->name); ?></a>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span class="product_price"><?php echo e($boardGame->product->productPrice->first()->retail_price); ?></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 no-padding">
+                                    <?php echo Form::open(['action' => ['CartController@addItem', $boardGame->product->id], 'class' => 'add-item-form']); ?>
+
+                                    <input type="hidden" name="id" value="<?php echo e($boardGame->product->id); ?>">
+                                    <button class="btn btn-danger" type="submit">
+                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;
+                                        <?php echo e(Lang::get('products.add_to_cart')); ?>
+
+                                    </button>
+                                    <?php echo Form::close(); ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+    <?php echo HTML::script('js/jquery.form.min.js'); ?>
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            var ajxOptions = {
+                success:       showResponse
+            };
+
+            jQuery('.add-item-form').submit(function() {
+                jQuery(this).ajaxSubmit(ajxOptions);
+                return false;
+            });
+        });
+
+        function showResponse(responseText, statusText, xhr, $form)  {
+            var response = parseInt(responseText);
+
+            if (response > 0) {
+                alert('<?php echo e(Lang::get('products.items_added_to_cart')); ?>');
+                jQuery('.count').html(response);
+            }
+        }
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

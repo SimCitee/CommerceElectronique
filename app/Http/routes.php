@@ -23,6 +23,9 @@ Route::group(array('namespace' => 'Admin'), function()
 });
 
 Route::resource('/products', 'ProductsController');
+Route::resource('/boardGames', 'BoardGamesController');
+Route::resource('/accessories', 'AccessoriesController');
+Route::resource('/sales', 'SalesController');
 Route::resource('admin/group', 'GroupsController');
 Route::resource('admin/productCategories', 'ProductCategoriesController');
 Route::resource('admin/tags', 'TagsController');
